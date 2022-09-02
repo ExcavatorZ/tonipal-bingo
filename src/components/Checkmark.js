@@ -15,9 +15,9 @@ const Checkmark = () => {
         <>
         <h1>{mark}</h1>
         <div onClick={handleClick} id="invisibletext">
-            asdasdasdasdasdasdasd
-            asdasdasdasdasdasdasd
-            asdasdasdasdasdasdasd
+            asdasdasdasdasdasd
+            asdasdasdasdasdasd
+            asdasdasdasdasdasd
         </div>
         </>
     );
