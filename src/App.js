@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Tonipal Bingo</h1>
+      <section id="table">
+        <div class="box a">Kahvi</div>
+        <div class="box b">Energiajuoma</div>
+        <div class="box c">Kuohuvesi</div>
+        <div class="box d">Leipä</div>
+        <div class="box e">Nyssykkä</div>
+        <div class="box f">Patukka</div>
+        <div class="box g">Mikroateria</div>
+        <div class="box h">Sushi</div>
+        <div class="box i">Palautusjuoma</div>
+      </section>
     </div>
   );
 }

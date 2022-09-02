@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+#table {
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  border: 2px brown solid;
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.box {
+  background-color: beige;
+  border: 1px black solid;
+  height: 100%;
+}
