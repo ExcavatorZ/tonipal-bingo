@@ -21,10 +21,10 @@ code {
   margin: auto;
   margin-top: 20px;
   border: 2px brown solid;
-  height: 500px;
-  width: 500px;
+  height: 700px;
+  width: 700px;
   display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
 }
 
 .box {

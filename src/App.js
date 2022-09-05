@@ -16,6 +16,13 @@ function App() {
         <div class="box g">Mikroateria<Checkmark /></div>
         <div class="box h">Sushi<Checkmark /></div>
         <div class="box i">Palautusjuoma<Checkmark /></div>
+        <div class="box j">Banaani<Checkmark /></div>
+        <div class="box k">Jogurtti<Checkmark /></div>
+        <div class="box l">Makeispussi<Checkmark /></div>
+        <div class="box m">Pähkinäpussi<Checkmark /></div>
+        <div class="box n">Energiavesi<Checkmark /></div>
+        <div class="box o">(Insert item)<Checkmark /></div>
+        <div class="box p">(Insert item)<Checkmark /></div>
       </section>
     </div>
   );
