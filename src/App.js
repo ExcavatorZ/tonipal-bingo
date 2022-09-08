@@ -21,7 +21,7 @@ function App() {
         <div class="box l">Makeispussi<Checkmark /></div>
         <div class="box m">Pähkinäpussi<Checkmark /></div>
         <div class="box n">Energiavesi<Checkmark /></div>
-        <div class="box o">(Insert item)<Checkmark /></div>
+        <div class="box o">Tikkukaramelli<Checkmark /></div>
         <div class="box p">(Insert item)<Checkmark /></div>
       </section>
     </div>
