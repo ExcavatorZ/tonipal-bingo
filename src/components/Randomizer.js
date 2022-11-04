@@ -1,5 +1,5 @@
 const bingoItems = ["Kahvi", "Energiajuoma", "Kuohuvesi", "Leipä", "Nyssykkä", "Patukka",
-"Mikroateria", "Sushi", "Palautusjuoma", "Banaani", "Joku rahka hömmeli", "Makeispussi",
+"Mikroateria", "Sushi", "Palautusjuoma", "Banaani", "Joku rahka hömmeli", "Roiskeläppä",
 "Pähkinäpussi", "Energiavesi", "Tikkukaramelli", "Salaatti"];
 
 const Randomizer = () => {
