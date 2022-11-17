@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 
-const Checkmark = () => {
+export const Checkmark = () => {
     const [mark, setMark] = useState('');
 
     const handleClick = () => {
@@ -22,5 +22,3 @@ const Checkmark = () => {
         </>
     );
 };
-
-export default Checkmark

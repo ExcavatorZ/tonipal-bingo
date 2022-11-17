@@ -1,6 +1,6 @@
 import './index.css';
-import Checkmark from './components/Checkmark';
-import Randomizer from './components/Randomizer';
+import {Checkmark} from './components/Checkmark';
+import {Randomizer} from './components/Randomizer';
 
 function App() {
   
