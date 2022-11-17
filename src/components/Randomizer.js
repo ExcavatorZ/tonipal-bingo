@@ -1,4 +1,5 @@
 import { Checkmark } from "./Checkmark";
+import { useNavigate } from "react-router-dom";
 
 const bingoItems = ["Kahvi", "Energiajuoma", "Kuohuvesi", "Leipä", "Nyssykkä", "Patukka",
 "Mikroateria", "Sushi", "Palautusjuoma", "Banaani", "Joku rahka hömmeli", "Roiskeläppä",
@@ -9,6 +10,9 @@ export const Randomizer = () => {
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
+
+    const navigate = useNavigate();
+
     return (
         <div>
             <section id="table">
@@ -30,8 +34,8 @@ export const Randomizer = () => {
                 <div className="box p">{newBingo[15]}<Checkmark /></div>
             </section>
             <br/>
-            <button style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
-            <button style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
+            <button onClick={() => navigate("/submit")} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
+            <button onClick={() => navigate("/results")} style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
       </div>
     );
     };
