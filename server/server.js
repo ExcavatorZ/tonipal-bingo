@@ -35,7 +35,7 @@ app.put("/update", async(req, res) => {
     } catch (err) {
         console.error(err.message)
     }
-})
+});
 
 app.listen(port, () => {
     console.log(`Tonipal Bingo listening on port ${port}.`);

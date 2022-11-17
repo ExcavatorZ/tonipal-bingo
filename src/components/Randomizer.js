@@ -15,7 +15,7 @@ export const Randomizer = () => {
 
     return (
         <div>
-            <section id="table">
+            <section id="board">
                 <div className="box a">{newBingo[0]}<Checkmark /></div>
                 <div className="box b">{newBingo[1]}<Checkmark /></div>
                 <div className="box c">{newBingo[2]}<Checkmark /></div>
