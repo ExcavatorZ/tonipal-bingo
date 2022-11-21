@@ -16,16 +16,16 @@ export const Randomizer = () => {
     const onSubmitForm = async e => {
         e.preventDefault();
         try {
-            const body = {"item": "Nyssykkä", "quantity": 1};
+            const body = {"name": "Nyssykkä", "quantity": 1};
             const response = await fetch("http://localhost:5000/update", {
                 method: "PUT",
                 headers: {"Content-Type": "Application/json"},
                 body: JSON.stringify(body)
             });
-            console.log(response)
+            console.log(response);
             navigate("/submit");
         } catch (err) {
-            console.error(err.message)
+            console.error(err.message);
         }
     }
 

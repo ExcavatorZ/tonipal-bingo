@@ -9,8 +9,8 @@ app.use(express.json());
 
 app.post("/new", async(req, res) => {
     try {
-        const { item, quantity } = req.body;
-        const newItem = await db.query("INSERT INTO results (item, quantity) VALUES($1,$2) RETURNING *", [item, quantity]);
+        const { name, quantity } = req.body;
+        const newItem = await db.query("INSERT INTO results (name, quantity) VALUES($1,$2) RETURNING *", [name, quantity]);
         res.json(newItem.rows[0]);
     } catch (err) {
         console.error(err.message);
@@ -28,12 +28,12 @@ app.get("/list", async(req, res) => {
 
 app.put("/update", async(req, res) => {
     try {
-        const { item, quantity } = req.body;
-        const updateItem = await db.query("UPDATE results SET quantity = quantity + 1 WHERE item = $1", [item])
+        const { name, quantity } = req.body;
+        const updateItem = await db.query("UPDATE results SET quantity = quantity + 1 WHERE name = $1", [name]);
 
-        res.json("Updated!")
+        res.json("Updated!");
     } catch (err) {
-        console.error(err.message)
+        console.error(err.message);
     }
 });
 
