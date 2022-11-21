@@ -1,17 +1,21 @@
 import { json, useNavigate } from "react-router-dom"
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 export const Leaderboard = () => {
     const navigate = useNavigate();
+    const [items, setItems] = useState([]);
     const getItems = async () => {
         try {
-            const response = await fetch("http://localhost:5000/list")
+            const response = await fetch("http://localhost:5000/list");
             const jsondata = await response.json();
-            console.log(jsondata)
+            setItems(jsondata)
         } catch (err) {
             console.error(err.message);
         }
     }
+    useEffect(() => {
+        getItems();
+    }, []);
     return (
         <Fragment>
             <table class="table alignitems-center text-center">
@@ -22,10 +26,12 @@ export const Leaderboard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Nyssykkä</td>
-                        <td>1</td>
-                    </tr>
+                    {items.map(item => (
+                        <tr>
+                            <td>{item.name}</td>
+                            <td>{item.quantity}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
             Leaderboard is supposed to come here.
