@@ -32,22 +32,22 @@ export const Randomizer = () => {
     return (
         <div>
             <section id="board">
-                <div className="box a">{newBingo[0]}<Checkmark /></div>
-                <div className="box b">{newBingo[1]}<Checkmark /></div>
-                <div className="box c">{newBingo[2]}<Checkmark /></div>
-                <div className="box d">{newBingo[3]}<Checkmark /></div>
-                <div className="box e">{newBingo[4]}<Checkmark /></div>
-                <div className="box f">{newBingo[5]}<Checkmark /></div>
-                <div className="box g">{newBingo[6]}<Checkmark /></div>
-                <div className="box h">{newBingo[7]}<Checkmark /></div>
-                <div className="box i">{newBingo[8]}<Checkmark /></div>
-                <div className="box j">{newBingo[9]}<Checkmark /></div>
-                <div className="box k">{newBingo[10]}<Checkmark /></div>
-                <div className="box l">{newBingo[11]}<Checkmark /></div>
-                <div className="box m">{newBingo[12]}<Checkmark /></div>
-                <div className="box n">{newBingo[13]}<Checkmark /></div>
-                <div className="box o">{newBingo[14]}<Checkmark /></div>
-                <div className="box p">{newBingo[15]}<Checkmark /></div>
+                <div className="box">{newBingo[0]}<Checkmark /></div>
+                <div className="box">{newBingo[1]}<Checkmark /></div>
+                <div className="box">{newBingo[2]}<Checkmark /></div>
+                <div className="box">{newBingo[3]}<Checkmark /></div>
+                <div className="box">{newBingo[4]}<Checkmark /></div>
+                <div className="box">{newBingo[5]}<Checkmark /></div>
+                <div className="box">{newBingo[6]}<Checkmark /></div>
+                <div className="box">{newBingo[7]}<Checkmark /></div>
+                <div className="box">{newBingo[8]}<Checkmark /></div>
+                <div className="box">{newBingo[9]}<Checkmark /></div>
+                <div className="box">{newBingo[10]}<Checkmark /></div>
+                <div className="box">{newBingo[11]}<Checkmark /></div>
+                <div className="box">{newBingo[12]}<Checkmark /></div>
+                <div className="box">{newBingo[13]}<Checkmark /></div>
+                <div className="box">{newBingo[14]}<Checkmark /></div>
+                <div className="box">{newBingo[15]}<Checkmark /></div>
             </section>
             <br/>
             <button onClick={onSubmitForm} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
