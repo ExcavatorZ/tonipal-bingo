@@ -13,8 +13,8 @@ export const Randomizer = () => {
 
     const navigate = useNavigate();
 
-    const onSubmitForm = async e => {
-        e.preventDefault();
+    const onSubmitForm = async event => {
+        event.preventDefault();
         try {
             const body = {"name": "Nyssykkä", "quantity": 1};
             const response = await fetch("http://localhost:5000/update", {
