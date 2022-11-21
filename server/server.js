@@ -28,8 +28,10 @@ app.get("/list", async(req, res) => {
 
 app.put("/update", async(req, res) => {
     try {
-        const { name, quantity } = req.body;
-        const updateItem = await db.query("UPDATE results SET quantity = quantity + 1 WHERE name = $1", [name]);
+        const checkedList = req.body;
+        for (const checked of checkedList) {
+            const updateItem = await db.query("UPDATE results SET quantity = quantity + 1 WHERE name = $1", [checked]);
+        }
 
         res.json("Updated!");
     } catch (err) {

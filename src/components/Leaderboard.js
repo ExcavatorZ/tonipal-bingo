@@ -18,7 +18,7 @@ export const Leaderboard = () => {
     }, []);
     return (
         <Fragment>
-            <table class="table alignitems-center text-center">
+            <table className="table alignitems-center text-center">
                 <thead>
                     <tr>
                         <th>Item</th>
@@ -27,7 +27,7 @@ export const Leaderboard = () => {
                 </thead>
                 <tbody>
                     {items.map(item => (
-                        <tr>
+                        <tr key={item.name}>
                             <td>{item.name}</td>
                             <td>{item.quantity}</td>
                         </tr>
