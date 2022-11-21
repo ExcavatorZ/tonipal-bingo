@@ -44,12 +44,12 @@ export const Randomizer = () => {
             </section>
             <br/>
             <button onClick={() => {
-                if (warning("submit the board")) {
+                if (warning("submit")) {
                     onSubmit();
                 };
             }} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
             <button onClick={() => {
-                if (warning("go to the leaderboards")) {
+                if (warning("results")) {
                     navigate("/results");
                 };
             }} style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
