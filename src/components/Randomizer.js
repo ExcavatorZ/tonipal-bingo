@@ -1,6 +1,7 @@
 import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Warning } from "./Warning";
 
 const bingoItems = ["Kahvi", "Energiajuoma", "Kuohuvesi", "Leipä", "Nyssykkä", "Patukka",
 "Mikroateria", "Sushi", "Palautusjuoma", "Banaani", "Joku rahka hömmeli", "Roiskeläppä",
@@ -43,7 +44,7 @@ export const Randomizer = () => {
                 })}
             </section>
             <br/>
-            <button onClick={onSubmitForm} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
+            <button onClick={() => {Warning("submit the board"); onSubmitForm();}} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
             <button onClick={() => navigate("/results")} style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
       </div>
     );
