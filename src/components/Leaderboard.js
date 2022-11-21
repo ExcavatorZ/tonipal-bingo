@@ -1,9 +1,17 @@
-import { useNavigate } from "react-router-dom"
+import { json, useNavigate } from "react-router-dom"
 import { Fragment } from "react";
 
 export const Leaderboard = () => {
     const navigate = useNavigate();
-
+    const getItems = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/list")
+            const jsondata = await response.json();
+            console.log(jsondata)
+        } catch (err) {
+            console.error(err.message);
+        }
+    }
     return (
         <Fragment>
             <table class="table alignitems-center text-center">
