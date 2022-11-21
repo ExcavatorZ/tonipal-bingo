@@ -19,7 +19,7 @@ app.post("/new", async(req, res) => {
 
 app.get("/list", async(req, res) => {
     try {
-        const allItems = await db.query("SELECT * FROM results ORDER BY quantity");
+        const allItems = await db.query("SELECT * FROM results ORDER BY quantity DESC");
         res.json(allItems.rows);
     } catch (err) {
         console.error(err.message);
