@@ -36,7 +36,7 @@ export const Leaderboard = () => {
             </table>
             Leaderboard is supposed to come here.
             <br />
-            <button onClick={() => navigate('/')} style={{margin: "20px"}} className="button">Back to bingo.</button>
+            <button onClick={() => navigate('/')} style={{margin: "20px"}} className="button">New bingo board.</button>
         </Fragment>
     )
 }
