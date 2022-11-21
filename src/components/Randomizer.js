@@ -13,6 +13,22 @@ export const Randomizer = () => {
 
     const navigate = useNavigate();
 
+    const onSubmitForm = async e => {
+        e.preventDefault();
+        try {
+            const body = {"item": "Nyssykkä", "quantity": 1};
+            const response = await fetch("http://localhost:5000/update", {
+                method: "PUT",
+                headers: {"Content-Type": "Application/json"},
+                body: JSON.stringify(body)
+            });
+            console.log(response)
+            navigate("/submit");
+        } catch (err) {
+            console.error(err.message)
+        }
+    }
+
     return (
         <div>
             <section id="board">
@@ -34,7 +50,7 @@ export const Randomizer = () => {
                 <div className="box p">{newBingo[15]}<Checkmark /></div>
             </section>
             <br/>
-            <button onClick={() => navigate("/submit")} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
+            <button onClick={onSubmitForm} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
             <button onClick={() => navigate("/results")} style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
       </div>
     );
