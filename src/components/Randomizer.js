@@ -46,9 +46,13 @@ export const Randomizer = () => {
             <button onClick={() => {
                 if (warning("submit the board")) {
                     onSubmit();
-                }
+                };
             }} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
-            <button onClick={() => navigate("/results")} style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
+            <button onClick={() => {
+                if (warning("go to the leaderboards")) {
+                    navigate("/results");
+                };
+            }} style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
       </div>
     );
     };
