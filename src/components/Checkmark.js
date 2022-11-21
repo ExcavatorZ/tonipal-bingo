@@ -1,20 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "../index.css";
 
-export const Checkmark = () => {
-    const [mark, setMark] = useState('');
+export const Checkmark = ({checked, onClick}) => {
 
-    const handleClick = () => {
-        if (mark === '') {
-            setMark('X');
-        } else {
-            setMark('');
-        }
-    };
     return (
         <>
-        <h1>{mark}</h1>
-        <div onClick={handleClick} id="invisibletext">
+        <h1>{checked ? 'X' : ''}</h1>
+        <div onClick={onClick} id="invisibletext">
             asdasdasdasdasdasd
             asdasdasdasdasdasd
             asdasdasdasdasdasd
