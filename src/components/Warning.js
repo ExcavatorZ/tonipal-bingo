@@ -1,5 +1,5 @@
-export const Warning = (site) => {
+export const warning = (site) => {
     return (
-        alert(`Are you sure you want to ${site}? Please note that the board will be reset afterwards.`)
+        window.confirm(`Are you sure you want to ${site}? Please note that the board will be reset afterwards.`)
     );
 };

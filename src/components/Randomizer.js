@@ -1,7 +1,7 @@
 import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Warning } from "./Warning";
+import { warning } from "./warning";
 
 const bingoItems = ["Kahvi", "Energiajuoma", "Kuohuvesi", "Leipä", "Nyssykkä", "Patukka",
 "Mikroateria", "Sushi", "Palautusjuoma", "Banaani", "Joku rahka hömmeli", "Roiskeläppä",
@@ -15,8 +15,7 @@ export const Randomizer = () => {
 
     const navigate = useNavigate();
 
-    const onSubmitForm = async event => {
-        event.preventDefault();
+    const onSubmit = async () => {
         try {
             const body = bingoBoard
               .filter(({checked}) => checked)
@@ -38,13 +37,17 @@ export const Randomizer = () => {
         <div>
             <section id="board">
                 {bingoBoard.map(box => {
-                    return <div key={box.value} className="box">{box.value}<Checkmark checked={box.checked} onClick={() => {
+                    return <Checkmark key={box.value} box={box} onClick={() => {
                         setBingoBoard(bingoBoard => bingoBoard.map(row_ => row_ === box ? {...row_, checked: !row_.checked} : row_))
-                    }}/></div>
+                    }}/>
                 })}
             </section>
             <br/>
-            <button onClick={() => {Warning("submit the board"); onSubmitForm();}} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
+            <button onClick={() => {
+                if (warning("submit the board")) {
+                    onSubmit();
+                }
+            }} style={{marginLeft: "630px", float: "left"}} className="button">Submit</button>
             <button onClick={() => navigate("/results")} style={{marginRight: "630px", float: "right"}} className="button">Leaderboards</button>
       </div>
     );
