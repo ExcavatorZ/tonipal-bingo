@@ -5,7 +5,7 @@ export const Submit = () => {
 
     return (
         <div>
-            Successful submit is supposed to come here.
+            Your scores have been submitted!
             <br />
             <button onClick={() => navigate('/')} style={{margin: "20px"}} className="button">New bingo board.</button>
             <button onClick={() => navigate("/results")} style={{margin: "20px"}} className="button">Leaderboards</button>
