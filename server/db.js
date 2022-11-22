@@ -19,8 +19,8 @@ const populate = () => {
         const bingoItems = ["Kahvi", "Energiajuoma", "Kuohuvesi", "Leipä", "Nyssykkä", "Patukka",
         "Mikroateria", "Sushi", "Palautusjuoma", "Banaani", "Joku rahka hömmeli", "Roiskeläppä",
         "Pähkinäpussi", "Energiavesi", "Tikkukaramelli", "Salaatti"];
-        for (const item in bingoItems) {
-            dbConfig.query('INSERT INTO public."results"("name") VALUES($1) ON CONFLICT ("name") DO NOTHING', [bingoItems[item]]);
+        for (const item of bingoItems) {
+            dbConfig.query('INSERT INTO public."results"("name") VALUES($1) ON CONFLICT ("name") DO NOTHING', [item]);
         }
     } catch (err) {
         console.error(err.message)
