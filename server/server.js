@@ -38,6 +38,15 @@ app.put("/update", async(req, res) => {
     }
 });
 
+app.put("/reset", async(req, res) => {
+    try {
+        const zeroItems = await db.query("UPDATE results SET quantity = 0");
+        res.json("Reset done.");
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 app.listen(port, () => {
     console.log(`Tonipal Bingo listening on port ${port}.`);
 });
