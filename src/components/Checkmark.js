@@ -1,16 +1,12 @@
 import React from "react";
 import "../index.css";
 
-export const Checkmark = ({checked, onClick}) => {
+export const Checkmark = ({box, onClick}) => {
 
     return (
-        <>
-        <h1>{checked ? 'X' : ''}</h1>
-        <div onClick={onClick} id="invisibletext">
-            asdasdasdasdasdasd
-            asdasdasdasdasdasd
-            asdasdasdasdasdasd
+        <div className="box" onClick={onClick}>
+            {box.value}
+        <h1>{box.checked ? 'X' : ''}</h1>
         </div>
-        </>
     );
 };

@@ -20,7 +20,7 @@ code {
   align-items: center;
   margin: auto;
   margin-top: 20px;
-  border: 2px brown solid;
+  border: 1px black solid;
   height: 700px;
   width: 700px;
   display: grid;
@@ -31,6 +31,7 @@ code {
   background-color: beige;
   border: 1px black solid;
   height: 100%;
+  cursor: pointer;
 }
 
 .button {

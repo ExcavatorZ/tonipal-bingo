@@ -2,6 +2,7 @@ import './index.css';
 import {Randomizer} from './components/Randomizer';
 import { Leaderboard } from './components/Leaderboard';
 import { Submit } from './components/Submit';
+import { Reset } from "./components/Reset";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Randomizer />} />
           <Route path="/results" element={<Leaderboard />} />
           <Route path="/submit" element={<Submit />} />
+          <Route path="/reset" element={<Reset />} />
         </Routes>
       </Router>
       <br/>

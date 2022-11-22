@@ -31,9 +31,17 @@ app.put("/update", async(req, res) => {
         const checkedList = req.body;
         for (const checked of checkedList) {
             const updateItem = await db.query("UPDATE results SET quantity = quantity + 1 WHERE name = $1", [checked]);
-        }
-
+        };
         res.json("Updated!");
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+app.put("/reset", async(req, res) => {
+    try {
+        const zeroItems = await db.query("UPDATE results SET quantity = 0");
+        res.json("Reset done.");
     } catch (err) {
         console.error(err.message);
     }
