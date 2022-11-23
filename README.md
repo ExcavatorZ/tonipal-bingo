@@ -14,16 +14,16 @@ This app is built with PERN stack. Includes Docker.
 
 ## Possible features to be added:
 
-#### -saving each individual board, its date and items
+-saving each individual board, its date and items
 
-#### -some sort of celebration if you get a bingo
+-some sort of celebration if you get a bingo
 
-#### -perhaps some styling
+-perhaps some styling
 
 ## Docker
 
 In the project directory, you can run commands:
 
-### `docker-compose up --build -d` builds new images.
+`docker-compose up --build -d` builds new images.
 
-### `docker-compose down` closes and removes images.
+`docker-compose down` closes and removes containers.
