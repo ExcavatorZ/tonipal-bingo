@@ -1,1 +1,0 @@
-# tonipal-bingo
