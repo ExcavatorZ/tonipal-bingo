@@ -3,25 +3,37 @@ import {Randomizer} from './components/Randomizer';
 import { Leaderboard } from './components/Leaderboard';
 import { Submit } from './components/Submit';
 import { Reset } from "./components/Reset";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Header } from './components/Header';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Header />,
+      children: [
+        {
+          path: '/',
+          element: <Randomizer />
+        },
+        {
+          path: "results",
+          element: <Leaderboard />
+        },
+        {
+          path: "submit",
+          element: <Submit />
+        },
+        {
+          path: "reset",
+          element: <Reset />
+        }
+      ],
+    },
+  ]);
   
   return (
-    <div className="App">
-      <h1>Tonipal Bingo</h1>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Randomizer />} />
-          <Route path="/results" element={<Leaderboard />} />
-          <Route path="/submit" element={<Submit />} />
-          <Route path="/reset" element={<Reset />} />
-        </Routes>
-      </Router>
-      <br/>
-      {/*<button style={{marginLeft: "300px", float: "left"}} className="button">Submit</button>
-      <button style={{marginRight: "300px", float: "right"}} className="button">Leaderboards</button>*/}
-    </div>
+    <RouterProvider router={router} />
   );
 }
 

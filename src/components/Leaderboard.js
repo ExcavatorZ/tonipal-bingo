@@ -12,8 +12,8 @@ export const Leaderboard = () => {
             setItems(jsondata);
         } catch (err) {
             console.error(err.message);
-        }
-    }
+        };
+    };
     useEffect(() => {
         getItems();
     }, []);
@@ -26,11 +26,11 @@ export const Leaderboard = () => {
             navigate("/reset")
         } catch (err) {
             console.error(err.message);  
-        }
-    }
+        };
+    };
     return (
         <Fragment>
-            <table className="table alignitems-center text-center">
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Item</th>
@@ -40,8 +40,8 @@ export const Leaderboard = () => {
                 <tbody>
                     {items.map(item => (
                         <tr key={item.name}>
-                            <td>{item.name}</td>
-                            <td>{item.quantity}</td>
+                            <td className="item">{item.name}</td>
+                            <td className="quantity">{item.quantity}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -54,5 +54,5 @@ export const Leaderboard = () => {
                 };
             }}  style={{margin: "20px"}} className="button">Reset leaderboards.</button>
         </Fragment>
-    )
-}
+    );
+};
