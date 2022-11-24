@@ -55,3 +55,7 @@ code {
   border: 1px black solid;
   padding: 0px;
 }
+
+.check {
+  font-size: 40px;
+}
