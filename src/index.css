@@ -21,6 +21,8 @@ code {
   margin: auto;
   margin-top: 20px;
   border: 1px black solid;
+  border-top: 2px black solid;
+  border-bottom: 2px black solid;
   height: 700px;
   width: 700px;
   display: grid;
@@ -40,6 +42,16 @@ code {
   padding: 10px;
 }
 
-#invisibletext {
-  color: transparent;
+.table {
+  width: 30%;
+  text-align: left;
+  margin-left: 35%;
+  margin-right: 30%;
+  border-spacing: 0px;
+  border: 2px black solid
+}
+
+.item, .quantity, th {
+  border: 1px black solid;
+  padding: 0px;
 }
