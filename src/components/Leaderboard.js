@@ -40,8 +40,8 @@ export const Leaderboard = () => {
         <tbody>
           {items.map((item) => (
             <tr key={item.name}>
-              <td className="item">{item.name}</td>
-              <td className="quantity">{item.quantity}</td>
+              <td className="tableitem">{item.name}</td>
+              <td className="tableitem">{item.quantity}</td>
             </tr>
           ))}
         </tbody>
