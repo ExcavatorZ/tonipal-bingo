@@ -1,6 +1,6 @@
 import { json, useNavigate } from "react-router-dom";
 import { Fragment, useState, useEffect } from "react";
-import { warning } from "./warning";
+import { warning } from "../warning";
 
 export const Leaderboard = () => {
   const navigate = useNavigate();

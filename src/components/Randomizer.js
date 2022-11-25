@@ -1,7 +1,7 @@
 import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { warning } from "./warning";
+import { warning } from "../warning";
 
 const bingoItems = [
   "Kahvi",
