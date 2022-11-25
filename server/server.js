@@ -63,6 +63,17 @@ app.put("/reset", async (req, res) => {
   }
 });
 
+app.get("/boards", async (req, res) => {
+  try {
+    const allBoards = await db.dbConfig.query(
+      "SELECT * FROM boards ORDER BY date DESC"
+    );
+    res.json(allBoards.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Tonipal Bingo listening on port ${port}.`);
 });
