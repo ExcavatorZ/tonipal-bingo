@@ -1,5 +1,6 @@
 import { useEffect, useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import { BingoWindow } from "./BingoWindow";
 
 export const Boards = () => {
   const navigate = useNavigate();
@@ -18,6 +19,12 @@ export const Boards = () => {
     getBoards();
   }, []);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [bingoInfo, setBingoInfo] = useState({});
+  function handleClose() {
+    setIsOpen(false);
+  }
+
   return (
     <Fragment>
       <table className="table">
@@ -31,7 +38,15 @@ export const Boards = () => {
         <tbody>
           {boards.map((board) => (
             <tr key={board.date}>
-              <td className="tableitem">{board.date}</td>
+              <td
+                className="tableitem"
+                onClick={() => {
+                  setBingoInfo({ date: board.date, items: board.items });
+                  setIsOpen(!isOpen);
+                }}
+              >
+                {board.date}
+              </td>
               <td className="tableitem">{board.items.length}</td>
               <td className="tableitem">{board.bingos}</td>
             </tr>
@@ -46,6 +61,13 @@ export const Boards = () => {
       >
         New bingo board.
       </button>
+      {isOpen && (
+        <BingoWindow
+          date={bingoInfo.date}
+          items={bingoInfo.items}
+          show={isOpen}
+        />
+      )}
     </Fragment>
   );
 };
