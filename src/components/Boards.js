@@ -21,9 +21,7 @@ export const Boards = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [bingoInfo, setBingoInfo] = useState({});
-  function handleClose() {
-    setIsOpen(false);
-  }
+  const handleClose = () => setIsOpen(!isOpen);
 
   return (
     <div>
@@ -32,47 +30,51 @@ export const Boards = () => {
           open={isOpen}
           date={bingoInfo.date[0]}
           items={bingoInfo.items}
+          handleClose={handleClose}
         />
       )}
-      <Fragment>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Items</th>
-              <th>Bingos</th>
-            </tr>
-          </thead>
-          <tbody>
-            {boards.map((board) => (
-              <tr key={board.date}>
-                <td
-                  className="tableitem"
-                  onClick={() => {
-                    setBingoInfo({
-                      date: board.date.split("T"),
-                      items: board.items,
-                    });
-                    setIsOpen(!isOpen);
-                  }}
-                >
-                  {board.date}
-                </td>
-                <td className="tableitem">{board.items.length}</td>
-                <td className="tableitem">{board.bingos}</td>
+      {!isOpen && (
+        <Fragment>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Bingos</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <br />
-        <button
-          onClick={() => navigate("/")}
-          style={{ margin: "20px" }}
-          className="button"
-        >
-          New bingo board.
-        </button>
-      </Fragment>
+            </thead>
+            <tbody>
+              {boards.map((board) => (
+                <tr key={board.date}>
+                  <td
+                    className="tableitem"
+                    id="link"
+                    onClick={() => {
+                      setBingoInfo({
+                        date: board.date.split("T"),
+                        items: board.items + " ",
+                      });
+                      setIsOpen(!isOpen);
+                    }}
+                  >
+                    {board.date}
+                  </td>
+                  <td className="tableitem">{board.items.length}</td>
+                  <td className="tableitem">{board.bingos}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <br />
+          <button
+            onClick={() => navigate("/")}
+            style={{ margin: "20px" }}
+            className="button"
+          >
+            New bingo board.
+          </button>
+        </Fragment>
+      )}
     </div>
   );
 };
