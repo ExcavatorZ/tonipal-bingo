@@ -18,6 +18,8 @@ This app is built with PERN stack. Includes Docker.
 
 -check if there has already been a board sent today
 
+-check approptriate rows and columns for a bingo
+
 -some sort of celebration if you get a bingo
 
 -perhaps some styling
