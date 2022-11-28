@@ -2,10 +2,11 @@ import { Modal, Button } from "react-bootstrap";
 
 export const BingoWindow = ({ open, date, items, bingos, handleClose }) => {
   const itemString = items.split(",");
-  const itemList = itemString.map((item) => {
+  const lastItem = itemString.slice(-1);
+  const itemList = itemString.slice(0, -1).map((item) => {
     return item + ", ";
   });
-  /*console.log(itemList[-1]);*/
+  itemList.push(lastItem);
 
   return (
     <Modal show={open} onHide={handleClose} backdrop="static">
