@@ -1,7 +1,7 @@
 import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { warning } from "./warning";
+import { warning } from "../warning";
 
 const bingoItems = [
   "Kahvi",
@@ -52,11 +52,6 @@ export const Randomizer = () => {
         headers: { "Content-Type": "Application/json" },
         body: JSON.stringify(boardBody),
       });
-      /*
-      console.log(boardBody);
-      console.log(JSON.stringify(boardBody), boardBody.length);
-      console.log(Math.floor(boardBody.length / 4));
-      */
       navigate("/submit");
     } catch (err) {
       console.error(err.message);
