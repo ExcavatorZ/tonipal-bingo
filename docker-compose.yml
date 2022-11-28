@@ -20,6 +20,8 @@ services:
     container_name: database0
     image: postgres:latest
     restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=bingo
       - POSTGRES_USER=postgres
@@ -31,3 +33,5 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+volumes:
+  postgres_data:
