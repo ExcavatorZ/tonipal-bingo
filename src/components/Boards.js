@@ -30,7 +30,7 @@ export const Boards = () => {
       {isOpen && (
         <BingoWindow
           open={isOpen}
-          date={bingoInfo.date}
+          date={bingoInfo.date[0]}
           items={bingoInfo.items}
         />
       )}
@@ -49,7 +49,10 @@ export const Boards = () => {
                 <td
                   className="tableitem"
                   onClick={() => {
-                    setBingoInfo({ date: board.date, items: board.items });
+                    setBingoInfo({
+                      date: board.date.split("T"),
+                      items: board.items,
+                    });
                     setIsOpen(!isOpen);
                   }}
                 >
