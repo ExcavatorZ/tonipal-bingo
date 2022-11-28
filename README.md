@@ -14,7 +14,9 @@ This app is built with PERN stack. Includes Docker.
 
 ## Possible features to be added:
 
--saving each individual board, its date and items
+-~~saving each individual board, its date and items~~
+
+-check if there has already been a board sent today
 
 -some sort of celebration if you get a bingo
 
