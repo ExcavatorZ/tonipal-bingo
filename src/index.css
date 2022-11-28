@@ -61,42 +61,8 @@ th {
   font-size: 40px;
 }
 
-.modalBackground {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(200, 200, 200);
-  position: fixed;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  width: 500px;
-  height: 500px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
-  padding: 25px;
-  margin-top: 10px;
-  margin-left: 35%;
-  margin-right: 30%;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: x-large;
-}
-
-.modalTitle {
-  font-size: xx-large;
-}
-
-.modalClose {
-  font-size: xx-large;
-  padding: 5px;
-  margin-left: 10px;
+.detailTitle {
+  margin-left: 3%;
 }
 
 #link {
