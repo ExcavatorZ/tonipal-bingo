@@ -24,12 +24,13 @@ export const Boards = () => {
   const handleClose = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <Fragment>
       {isOpen && (
         <BingoWindow
           open={isOpen}
           date={bingoInfo.date[0]}
           items={bingoInfo.items}
+          bingos={bingoInfo.bingos}
           handleClose={handleClose}
         />
       )}
@@ -53,6 +54,7 @@ export const Boards = () => {
                       setBingoInfo({
                         date: board.date.split("T"),
                         items: board.items + " ",
+                        bingos: board.bingos,
                       });
                       setIsOpen(!isOpen);
                     }}
@@ -75,6 +77,6 @@ export const Boards = () => {
           </button>
         </Fragment>
       )}
-    </div>
+    </Fragment>
   );
 };
