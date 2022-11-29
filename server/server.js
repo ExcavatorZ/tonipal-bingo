@@ -20,6 +20,19 @@ app.get("/list", async (req, res) => {
     console.error(err.message);
   }
 });
+// This is just for testing.
+app.delete("/remove/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const deleteBoard = await db.dbConfig.query(
+      "DELETE FROM boards WHERE id = $1",
+      [id]
+    );
+    res.json("Successfully removed board!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 app.put("/update", async (req, res) => {
   try {
