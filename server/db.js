@@ -24,7 +24,6 @@ const creation = () => {
   dbConfig.query(
     'CREATE UNIQUE INDEX "DAY" ON public."boards"(EXTRACT("day" FROM "date"))',
     (err, res) => {
-      console.log("moi");
       console.log(err, res);
     }
   );

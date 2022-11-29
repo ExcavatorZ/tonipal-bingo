@@ -61,7 +61,8 @@ app.post("/insert", async (req, res) => {
     );
     res.json("Board sent!");
   } catch (err) {
-    console.error(err.message);
+    res.status(504);
+    res.json(err.message);
   }
 });
 
