@@ -37,13 +37,6 @@ export const Randomizer = () => {
       const resultBody = bingoBoard
         .filter(({ checked }) => checked)
         .map(({ value }) => value);
-
-      const resultResponse = await fetch("http://localhost:5000/update", {
-        method: "PUT",
-        headers: { "Content-Type": "Application/json" },
-        body: JSON.stringify(resultBody),
-      });
-
       const boardBody = resultBody;
       boardBody.push(boardBody.length);
 
@@ -51,6 +44,12 @@ export const Randomizer = () => {
         method: "POST",
         headers: { "Content-Type": "Application/json" },
         body: JSON.stringify(boardBody),
+      });
+
+      const resultResponse = await fetch("http://localhost:5000/update", {
+        method: "PUT",
+        headers: { "Content-Type": "Application/json" },
+        body: JSON.stringify(resultBody),
       });
       navigate("/submit");
     } catch (err) {
