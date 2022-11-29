@@ -40,14 +40,12 @@ export const Randomizer = () => {
         .map(({ value }) => value);
       const boardBody = resultBody;
       boardBody.push(boardBody.length);
-
       const boardResponse = await fetch("http://localhost:5000/insert", {
         method: "POST",
         headers: { "Content-Type": "Application/json" },
         body: JSON.stringify(boardBody),
       });
       const result = boardResponse.status;
-      console.log(result);
       if (result !== 504) {
         const resultResponse = await fetch("http://localhost:5000/update", {
           method: "PUT",
@@ -56,7 +54,7 @@ export const Randomizer = () => {
         });
         navigate("/submit");
       } else {
-        patch();
+        patch(boardBody);
       }
     } catch (err) {
       console.error(err.message);
