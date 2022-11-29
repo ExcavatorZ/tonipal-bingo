@@ -92,19 +92,28 @@ app.patch("/boards/:id", async (req, res) => {
   try {
     const board = req.params.id;
     const body = req.body;
-    var patchables = body.slice(0, -1);
+    const patchables = body.slice(0, -1);
     let bingos = body.slice(-1);
     bingos = Math.floor(bingos / 4);
     const replaceBoard = await db.dbConfig.query(
       "UPDATE boards SET items = $1, bingos = $2 WHERE id = $3",
       [patchables, Number(bingos), board]
     );
-    console.log("Patched...");
     res.json("Patched!");
   } catch (err) {
-    console.log(patchables);
     console.error(err.message);
     res.json(err.message);
+  }
+});
+
+app.get("/last", async (req, res) => {
+  try {
+    const lastBoard = await db.dbConfig.query(
+      "SELECT * FROM boards ORDER BY id DESC LIMIT 1"
+    );
+    res.json(lastBoard);
+  } catch (err) {
+    console.err(err.message);
   }
 });
 

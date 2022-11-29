@@ -2,7 +2,7 @@ import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { warning } from "../warning";
-import { patch } from "../patch";
+import { Patchrequest } from "./Patchrequest";
 
 const bingoItems = [
   "Kahvi",
@@ -46,6 +46,7 @@ export const Randomizer = () => {
         body: JSON.stringify(boardBody),
       });
       const result = boardResponse.status;
+
       if (result !== 504) {
         const resultResponse = await fetch("http://localhost:5000/update", {
           method: "PUT",
@@ -54,7 +55,7 @@ export const Randomizer = () => {
         });
         navigate("/submit");
       } else {
-        patch(boardBody);
+        Patchrequest(boardBody);
       }
     } catch (err) {
       console.error(err.message);
