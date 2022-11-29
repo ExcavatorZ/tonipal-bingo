@@ -1,3 +1,7 @@
+import { warning } from "./warning";
+
 export const patch = () => {
-  console.log("tonipal kahville");
+  if (warning("existing")) {
+    console.log("tonipal kahville");
+  }
 };

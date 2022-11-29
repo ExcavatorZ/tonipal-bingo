@@ -22,7 +22,7 @@ const creation = () => {
     }
   );
   dbConfig.query(
-    'CREATE UNIQUE INDEX "DAY" ON public."boards"(EXTRACT("day" FROM "date"))',
+    'CREATE UNIQUE INDEX "DAY" ON public."boards"(EXTRACT("day" FROM "date"), EXTRACT("month" FROM "date"), EXTRACT("year" FROM "date"))',
     (err, res) => {
       console.log(err, res);
     }
