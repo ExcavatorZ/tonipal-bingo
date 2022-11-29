@@ -2,6 +2,7 @@ import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { warning } from "../warning";
+import { patch } from "../patch";
 
 const bingoItems = [
   "Kahvi",
@@ -40,15 +41,13 @@ export const Randomizer = () => {
       const boardBody = resultBody;
       boardBody.push(boardBody.length);
 
-      const boardResponse = async () => {
-        const response = await fetch("http://localhost:5000/insert", {
-          method: "POST",
-          headers: { "Content-Type": "Application/json" },
-          body: JSON.stringify(boardBody),
-        });
-        return response.status;
-      };
-      const result = boardResponse();
+      const boardResponse = await fetch("http://localhost:5000/insert", {
+        method: "POST",
+        headers: { "Content-Type": "Application/json" },
+        body: JSON.stringify(boardBody),
+      });
+      const result = boardResponse.status;
+      console.log(result);
       if (result !== 504) {
         const resultResponse = await fetch("http://localhost:5000/update", {
           method: "PUT",
@@ -56,6 +55,8 @@ export const Randomizer = () => {
           body: JSON.stringify(resultBody),
         });
         navigate("/submit");
+      } else {
+        patch();
       }
     } catch (err) {
       console.error(err.message);
@@ -88,7 +89,7 @@ export const Randomizer = () => {
             onSubmit();
           }
         }}
-        style={{ marginLeft: "630px", float: "left" }}
+        style={{ marginLeft: "32%", float: "left" }}
         className="button"
       >
         Submit
@@ -99,7 +100,7 @@ export const Randomizer = () => {
             navigate("/results");
           }
         }}
-        style={{ marginRight: "630px", float: "right" }}
+        style={{ marginRight: "32%", float: "right" }}
         className="button"
       >
         Leaderboards
