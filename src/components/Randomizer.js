@@ -40,18 +40,23 @@ export const Randomizer = () => {
       const boardBody = resultBody;
       boardBody.push(boardBody.length);
 
-      const boardResponse = await fetch("http://localhost:5000/insert", {
-        method: "POST",
-        headers: { "Content-Type": "Application/json" },
-        body: JSON.stringify(boardBody),
-      });
-
-      const resultResponse = await fetch("http://localhost:5000/update", {
-        method: "PUT",
-        headers: { "Content-Type": "Application/json" },
-        body: JSON.stringify(resultBody),
-      });
-      navigate("/submit");
+      const boardResponse = async () => {
+        const response = await fetch("http://localhost:5000/insert", {
+          method: "POST",
+          headers: { "Content-Type": "Application/json" },
+          body: JSON.stringify(boardBody),
+        });
+        return response.status;
+      };
+      const result = boardResponse();
+      if (result !== 504) {
+        const resultResponse = await fetch("http://localhost:5000/update", {
+          method: "PUT",
+          headers: { "Content-Type": "Application/json" },
+          body: JSON.stringify(resultBody),
+        });
+        navigate("/submit");
+      }
     } catch (err) {
       console.error(err.message);
     }
