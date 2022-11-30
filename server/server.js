@@ -10,6 +10,7 @@ db.dbConfig.connect();
 db.creation();
 db.populate();
 
+// Lists all items.
 app.get("/list", async (req, res) => {
   try {
     const allItems = await db.dbConfig.query(
@@ -20,6 +21,7 @@ app.get("/list", async (req, res) => {
     console.error(err.message);
   }
 });
+
 // This is just for testing.
 app.delete("/remove/:id", async (req, res) => {
   try {
@@ -34,6 +36,7 @@ app.delete("/remove/:id", async (req, res) => {
   }
 });
 
+// Saves each checked item.
 app.put("/update", async (req, res) => {
   try {
     const checkedList = req.body;
@@ -49,6 +52,7 @@ app.put("/update", async (req, res) => {
   }
 });
 
+// Saves the individual board.
 app.post("/insert", async (req, res) => {
   try {
     const body = req.body;
@@ -66,6 +70,7 @@ app.post("/insert", async (req, res) => {
   }
 });
 
+// Resets the items to 0.
 app.put("/reset", async (req, res) => {
   try {
     const zeroItems = await db.dbConfig.query(
@@ -77,6 +82,7 @@ app.put("/reset", async (req, res) => {
   }
 });
 
+// Lists all boards.
 app.get("/boards", async (req, res) => {
   try {
     const allBoards = await db.dbConfig.query(
@@ -88,6 +94,7 @@ app.get("/boards", async (req, res) => {
   }
 });
 
+// Overrides the board sent previously on that day.
 app.patch("/boards/:id", async (req, res) => {
   try {
     const board = req.params.id;
@@ -106,6 +113,7 @@ app.patch("/boards/:id", async (req, res) => {
   }
 });
 
+// Gets the id of the last board sent.
 app.get("/last", async (req, res) => {
   try {
     const lastBoard = await db.dbConfig.query(
