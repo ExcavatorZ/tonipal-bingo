@@ -2,7 +2,7 @@ import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { warning } from "../warning";
-import { Patchrequest } from "./Patchrequest";
+import { patchrequest } from "../patchrequest";
 
 const bingoItems = [
   "Kahvi",
@@ -55,7 +55,9 @@ export const Randomizer = () => {
         });
         navigate("/submit");
       } else {
-        Patchrequest(boardBody);
+        if (patchrequest(boardBody)) {
+          navigate("/submit");
+        }
       }
     } catch (err) {
       console.error(err.message);

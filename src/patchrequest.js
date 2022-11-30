@@ -1,9 +1,6 @@
-import { warning } from "../warning";
-import { useNavigate } from "react-router-dom";
+import { warning } from "./warning";
 
-export const Patchrequest = async (boardBody) => {
-  //const navigate = useNavigate();
-
+export const patchrequest = async (boardBody) => {
   if (warning("existing")) {
     try {
       const lastBoard = await fetch("http://localhost:5000/last")
