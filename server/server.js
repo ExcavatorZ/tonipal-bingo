@@ -10,6 +10,7 @@ db.dbConfig.connect();
 db.creation();
 db.populate();
 
+// Lists all items.
 app.get("/list", async (req, res) => {
   try {
     const allItems = await db.dbConfig.query(
@@ -21,6 +22,21 @@ app.get("/list", async (req, res) => {
   }
 });
 
+// This is just for testing.
+app.delete("/remove/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const deleteBoard = await db.dbConfig.query(
+      "DELETE FROM boards WHERE id = $1",
+      [id]
+    );
+    res.json("Successfully removed board!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+// Saves each checked item.
 app.put("/update", async (req, res) => {
   try {
     const checkedList = req.body;
@@ -36,6 +52,7 @@ app.put("/update", async (req, res) => {
   }
 });
 
+// Saves the individual board.
 app.post("/insert", async (req, res) => {
   try {
     const body = req.body;
@@ -48,10 +65,12 @@ app.post("/insert", async (req, res) => {
     );
     res.json("Board sent!");
   } catch (err) {
-    console.error(err.message);
+    res.status(504);
+    res.json(err.message);
   }
 });
 
+// Resets the items to 0.
 app.put("/reset", async (req, res) => {
   try {
     const zeroItems = await db.dbConfig.query(
@@ -63,6 +82,7 @@ app.put("/reset", async (req, res) => {
   }
 });
 
+// Lists all boards.
 app.get("/boards", async (req, res) => {
   try {
     const allBoards = await db.dbConfig.query(
@@ -71,6 +91,37 @@ app.get("/boards", async (req, res) => {
     res.json(allBoards.rows);
   } catch (err) {
     console.error(err.message);
+  }
+});
+
+// Overrides the board sent previously on that day.
+app.patch("/boards/:id", async (req, res) => {
+  try {
+    const board = req.params.id;
+    const body = req.body;
+    const patchables = body.slice(0, -1);
+    let bingos = body.slice(-1);
+    bingos = Math.floor(bingos / 4);
+    const replaceBoard = await db.dbConfig.query(
+      "UPDATE boards SET items = $1, bingos = $2 WHERE id = $3",
+      [patchables, Number(bingos), board]
+    );
+    res.json("Patched!");
+  } catch (err) {
+    console.error(err.message);
+    res.json(err.message);
+  }
+});
+
+// Gets the id of the last board sent.
+app.get("/last", async (req, res) => {
+  try {
+    const lastBoard = await db.dbConfig.query(
+      "SELECT id FROM boards ORDER BY id DESC LIMIT 1"
+    );
+    res.json(lastBoard);
+  } catch (err) {
+    console.err(err.message);
   }
 });
 

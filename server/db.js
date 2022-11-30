@@ -21,6 +21,12 @@ const creation = () => {
       console.log(err, res);
     }
   );
+  dbConfig.query(
+    'CREATE UNIQUE INDEX IF NOT EXISTS "DAY" ON public."boards"(EXTRACT("day" FROM "date"), EXTRACT("month" FROM "date"), EXTRACT("year" FROM "date"))',
+    (err, res) => {
+      console.log(err, res);
+    }
+  );
 };
 
 const populate = () => {
