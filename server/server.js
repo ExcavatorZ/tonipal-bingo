@@ -22,7 +22,7 @@ app.get("/list", async (req, res) => {
   }
 });
 
-// This is just for testing.
+// Deletes the board with the corresponding id.
 app.delete("/remove/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -125,6 +125,7 @@ app.get("/last", async (req, res) => {
   }
 });
 
+// Decreases every item checked from a deleted board.
 app.put("/decrease", async (req, res) => {
   try {
     const checkedList = req.body;
