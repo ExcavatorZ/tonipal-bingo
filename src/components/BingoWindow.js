@@ -29,6 +29,7 @@ export const BingoWindow = ({ open, date, items, bingos, handleClose }) => {
         {<br />}
         {<br />}
         Number of Bingos: {bingos}
+        <Button>Delete Board</Button>
       </Modal.Body>
     </Modal>
   );
