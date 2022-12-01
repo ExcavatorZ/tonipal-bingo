@@ -1,12 +1,36 @@
 import { Modal, Button } from "react-bootstrap";
+import { warning } from "../warning";
 
-export const BingoWindow = ({ open, date, items, bingos, handleClose }) => {
+export const BingoWindow = ({ open, id, date, items, bingos, handleClose }) => {
   const itemString = items.split(",");
   const lastItem = itemString.slice(-1);
   const itemList = itemString.slice(0, -1).map((item) => {
     return item + ", ";
   });
   itemList.push(lastItem);
+
+  const onDelete = async () => {
+    try {
+      const deleteBoard = await fetch(`http://localhost:5000/remove/${id}`, {
+        method: "DELETE",
+      });
+
+      const deletedItems = itemString.slice(0, -1);
+      deletedItems.push(lastItem.toString().slice(0, -1));
+
+      console.log(deletedItems);
+      console.log(JSON.stringify(deletedItems));
+      const deleteItems = await fetch("http://localhost:5000/decrease", {
+        method: "PUT",
+        headers: { "Content-Type": "Application/json" },
+        body: JSON.stringify(deletedItems),
+      });
+      handleClose();
+      window.location.reload(false);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   return (
     <Modal show={open} onHide={handleClose} backdrop="static">
@@ -23,13 +47,23 @@ export const BingoWindow = ({ open, date, items, bingos, handleClose }) => {
       <Modal.Title className="detailTitle">Details of Board</Modal.Title>
       <Modal.Body>
         Date of Board: {date}
-        {<br />}
-        {<br />}
+        <br />
+        <br />
         Items: {itemList}
-        {<br />}
-        {<br />}
+        <br />
+        <br />
         Number of Bingos: {bingos}
-        <Button>Delete Board</Button>
+        <br />
+        <br />
+        <Button
+          onClick={() => {
+            if (warning("delete")) {
+              onDelete();
+            }
+          }}
+        >
+          Delete Board
+        </Button>
       </Modal.Body>
     </Modal>
   );
