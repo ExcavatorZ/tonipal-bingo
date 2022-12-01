@@ -17,6 +17,10 @@ export const warning = (site) => {
       message =
         "There has already been a board sent on this day. Would you like to override it and send this board?";
       break;
+    case "delete":
+      message =
+        "Are you sure you want to delete this board? This can not be reversed!";
+      break;
     default:
       message = "tonipal kahville";
   }
