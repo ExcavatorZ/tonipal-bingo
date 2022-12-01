@@ -117,11 +117,26 @@ app.patch("/boards/:id", async (req, res) => {
 app.get("/last", async (req, res) => {
   try {
     const lastBoard = await db.dbConfig.query(
-      "SELECT id FROM boards ORDER BY id DESC LIMIT 1"
+      "SELECT id, items FROM boards ORDER BY id DESC LIMIT 1"
     );
     res.json(lastBoard);
   } catch (err) {
     console.err(err.message);
+  }
+});
+
+app.put("/decrease", async (req, res) => {
+  try {
+    const checkedList = req.body;
+    for (const checked of checkedList) {
+      const updateItem = await db.dbConfig.query(
+        "UPDATE results SET quantity = quantity - 1 WHERE name = $1",
+        [checked]
+      );
+    }
+    res.json("Updated!");
+  } catch (err) {
+    console.error(err.message);
   }
 });
 
