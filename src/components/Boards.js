@@ -77,6 +77,13 @@ export const Boards = () => {
           >
             New bingo board.
           </button>
+          <button
+            onClick={() => navigate("/results")}
+            style={{ margin: "20px" }}
+            className="button"
+          >
+            Leaderboards
+          </button>
         </Fragment>
       )}
     </Fragment>
