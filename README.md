@@ -16,7 +16,9 @@ This app is built with PERN stack. Includes Docker.
 
 -~~saving each individual board, its date and items~~
 
--check if there has already been a board sent today
+~~-check if there has already been a board sent today~~
+
+-deleting previous items if overriding a previous board
 
 -check approptriate rows and columns for a bingo
 
