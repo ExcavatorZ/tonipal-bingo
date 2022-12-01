@@ -1,6 +1,6 @@
 import { Checkmark } from "./Checkmark";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { warning } from "../warning";
 import { patchrequest } from "../patchrequest";
 
@@ -63,18 +63,40 @@ export const Randomizer = () => {
       console.error(err.message);
     }
   };
-  const combinations =
-    ([0, 1, 2, 3],
-    [4, 5, 6, 7],
-    [8, 9, 10, 11],
-    [12, 13, 14, 15],
-    [0, 4, 8, 12],
-    [1, 5, 9, 13],
-    [2, 6, 10, 14],
-    [3, 7, 11, 15],
-    [0, 5, 10, 15],
-    [12, 9, 6, 3]);
+  const combinations = useMemo(
+    () => [
+      [bingoBoard[0], bingoBoard[1], bingoBoard[2], bingoBoard[3]],
+      [bingoBoard[4], bingoBoard[5], bingoBoard[6], bingoBoard[7]],
+      [bingoBoard[8], bingoBoard[9], bingoBoard[10], bingoBoard[11]],
+      [bingoBoard[12], bingoBoard[13], bingoBoard[14], bingoBoard[15]],
+      [bingoBoard[0], bingoBoard[4], bingoBoard[8], bingoBoard[12]],
+      [bingoBoard[1], bingoBoard[5], bingoBoard[9], bingoBoard[13]],
+      [bingoBoard[2], bingoBoard[6], bingoBoard[10], bingoBoard[14]],
+      [bingoBoard[3], bingoBoard[7], bingoBoard[11], bingoBoard[15]],
+      [bingoBoard[0], bingoBoard[5], bingoBoard[10], bingoBoard[15]],
+      [bingoBoard[12], bingoBoard[9], bingoBoard[6], bingoBoard[3]],
+    ],
+    [bingoBoard]
+  );
 
+  const [bingoCounter, setBingoCounter] = useState(0);
+
+  useEffect(() => {
+    let counter = 0;
+    for (const combination of combinations) {
+      if (
+        combination[0].checked &&
+        combination[1].checked &&
+        combination[2].checked &&
+        combination[3].checked
+      ) {
+        counter++;
+      }
+    }
+    setBingoCounter(counter);
+  }, [bingoBoard, combinations]);
+
+  console.log(bingoCounter);
   return (
     <div>
       <section id="board">
