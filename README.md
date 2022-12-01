@@ -18,9 +18,9 @@ This app is built with PERN stack. Includes Docker.
 
 ~~-check if there has already been a board sent today~~
 
--deleting previous items if overriding a previous board
+~~-deleting previous items if overriding a previous board~~
 
--check approptriate rows and columns for a bingo
+-check appropriate rows and columns for a bingo
 
 -some sort of celebration if you get a bingo
 
