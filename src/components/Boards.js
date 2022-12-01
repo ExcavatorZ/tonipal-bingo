@@ -28,6 +28,7 @@ export const Boards = () => {
       {isOpen && (
         <BingoWindow
           open={isOpen}
+          id={bingoInfo.id}
           date={bingoInfo.date[0]}
           items={bingoInfo.items}
           bingos={bingoInfo.bingos}
@@ -52,6 +53,7 @@ export const Boards = () => {
                     id="link"
                     onClick={() => {
                       setBingoInfo({
+                        id: board.id,
                         date: board.date.split("T"),
                         items: board.items + " ",
                         bingos: board.bingos,
