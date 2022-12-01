@@ -26,6 +26,11 @@ export const patchrequest = async (boardBody) => {
         headers: { "Content-Type": "Application/json" },
         body: JSON.stringify(itemlist[1]),
       });
+      const addNewItems = await fetch(`http://localhost:5000/increase`, {
+        method: "PUT",
+        headers: { "Content-Type": "Application/json" },
+        body: JSON.stringify(boardBody),
+      });
     } catch (err) {
       console.error(err.message);
     }

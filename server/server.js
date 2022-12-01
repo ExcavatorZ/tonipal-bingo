@@ -37,7 +37,7 @@ app.delete("/remove/:id", async (req, res) => {
 });
 
 // Saves each checked item.
-app.put("/update", async (req, res) => {
+app.put("/increase", async (req, res) => {
   try {
     const checkedList = req.body;
     for (const checked of checkedList) {

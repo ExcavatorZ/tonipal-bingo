@@ -48,7 +48,7 @@ export const Randomizer = () => {
       const result = boardResponse.status;
 
       if (result !== 504) {
-        const resultResponse = await fetch("http://localhost:5000/update", {
+        const resultResponse = await fetch("http://localhost:5000/increase", {
           method: "PUT",
           headers: { "Content-Type": "Application/json" },
           body: JSON.stringify(resultBody),
