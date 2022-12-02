@@ -22,7 +22,7 @@ This app is built with PERN stack. Includes Docker.
 
 -check appropriate rows and columns for a bingo
 
--delete individual boards in modal
+~~-delete individual boards in modal~~
 
 -some sort of celebration if you get a bingo
 

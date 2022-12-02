@@ -26,7 +26,7 @@ export const BingoWindow = ({ open, id, date, items, bingos, handleClose }) => {
         body: JSON.stringify(deletedItems),
       });
       handleClose();
-      window.location.reload(false);
+      window.location.reload();
     } catch (err) {
       console.error(err.message);
     }
