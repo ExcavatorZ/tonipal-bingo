@@ -20,7 +20,7 @@ This app is built with PERN stack. Includes Docker.
 
 ~~-deleting previous items if overriding a previous board~~
 
--check appropriate rows and columns for a bingo
+~~-check appropriate rows and columns for a bingo~~
 
 ~~-delete individual boards in modal~~
 
