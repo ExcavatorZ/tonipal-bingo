@@ -99,8 +99,7 @@ app.patch("/boards/:id", async (req, res) => {
     const board = req.params.id;
     const body = req.body;
     const patchables = body.slice(0, -1);
-    let bingos = body.slice(-1);
-    bingos = Math.floor(bingos / 4);
+    const bingos = body.slice(-1);
     const replaceBoard = await db.dbConfig.query(
       "UPDATE boards SET items = $1, bingos = $2 WHERE id = $3",
       [patchables, Number(bingos), board]
