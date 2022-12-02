@@ -24,7 +24,7 @@ This app is built with PERN stack. Includes Docker.
 
 ~~-delete individual boards in modal~~
 
--some sort of celebration if you get a bingo
+~~-some sort of celebration if you get a bingo~~
 
 -perhaps some styling
 
