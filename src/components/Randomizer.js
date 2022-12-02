@@ -55,7 +55,7 @@ export const Randomizer = () => {
         });
         navigate("/submit");
       } else {
-        if (patchrequest(boardBody)) {
+        if (await patchrequest(boardBody)) {
           navigate("/submit");
         }
       }

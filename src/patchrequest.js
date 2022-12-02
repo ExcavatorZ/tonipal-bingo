@@ -31,8 +31,11 @@ export const patchrequest = async (boardBody) => {
         headers: { "Content-Type": "Application/json" },
         body: JSON.stringify(boardBody),
       });
+      return true;
     } catch (err) {
       console.error(err.message);
     }
+  } else {
+    return false;
   }
 };
