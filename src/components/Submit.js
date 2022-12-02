@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { bingoWins } from "../bingoAmounts";
 
 export const Submit = () => {
   const navigate = useNavigate();
@@ -26,7 +27,9 @@ export const Submit = () => {
   console.log(bingoAmount);
   return (
     <div>
-      Your scores have been submitted! {bingoAmount}
+      Your scores have been submitted!
+      <br />
+      <h2 style={{ fontStyle: "italic" }}>{bingoWins(bingoAmount)}</h2>
       <br />
       <button
         onClick={() => navigate("/")}
