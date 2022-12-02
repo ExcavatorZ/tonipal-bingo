@@ -115,7 +115,7 @@ app.patch("/boards/:id", async (req, res) => {
 app.get("/last", async (req, res) => {
   try {
     const lastBoard = await db.dbConfig.query(
-      "SELECT id, items FROM boards ORDER BY id DESC LIMIT 1"
+      "SELECT id, items, bingos FROM boards ORDER BY id DESC LIMIT 1"
     );
     res.json(lastBoard);
   } catch (err) {
