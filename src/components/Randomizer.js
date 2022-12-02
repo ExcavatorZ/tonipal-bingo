@@ -39,7 +39,7 @@ export const Randomizer = () => {
         .filter(({ checked }) => checked)
         .map(({ value }) => value);
       const boardBody = resultBody;
-      boardBody.push(boardBody.length);
+      boardBody.push(bingoCounter);
       const boardResponse = await fetch("http://localhost:5000/insert", {
         method: "POST",
         headers: { "Content-Type": "Application/json" },
@@ -96,7 +96,6 @@ export const Randomizer = () => {
     setBingoCounter(counter);
   }, [bingoBoard, combinations]);
 
-  console.log(bingoCounter);
   return (
     <div>
       <section id="board">

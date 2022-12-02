@@ -57,8 +57,7 @@ app.post("/insert", async (req, res) => {
   try {
     const body = req.body;
     const items = body.slice(0, -1);
-    let bingos = body.slice(-1);
-    bingos = Math.floor(bingos / 4);
+    const bingos = body.slice(-1);
     const newBoard = await db.dbConfig.query(
       "INSERT INTO boards (items, bingos) VALUES($1,$2)",
       [items, Number(bingos)]
