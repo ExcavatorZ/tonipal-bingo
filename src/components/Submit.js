@@ -27,7 +27,7 @@ export const Submit = () => {
   console.log(bingoAmount);
   return (
     <div>
-      Your scores have been submitted!
+      <h2>Your scores have been submitted!</h2>
       <br />
       <h2 style={{ fontStyle: "italic" }}>{bingoWins(bingoAmount)}</h2>
       <br />

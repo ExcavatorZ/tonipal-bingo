@@ -5,6 +5,7 @@ import { Submit } from "./components/Submit";
 import { Reset } from "./components/Reset";
 import { Header } from "./components/Header";
 import { Boards } from "./components/Boards";
+import { Redirect } from "./components/Redirect";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
         {
           path: "boards",
           element: <Boards />,
+        },
+        {
+          path: "*",
+          element: <Redirect />,
         },
       ],
     },
