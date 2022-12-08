@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { useEffect, useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { BingoWindow } from "./BingoWindow";
@@ -30,6 +31,8 @@ export const Boards = () => {
           open={isOpen}
           id={bingoInfo.id}
           date={bingoInfo.date[0]}
+          time={bingoInfo.date[1]}
+          day={bingoInfo.day}
           items={bingoInfo.items}
           bingos={bingoInfo.bingos}
           handleClose={handleClose}
@@ -55,13 +58,15 @@ export const Boards = () => {
                       setBingoInfo({
                         id: board.id,
                         date: board.date.split("T"),
+                        time: board.date.split("T"),
+                        day: moment(board.date).format("dddd"),
                         items: board.items + " ",
                         bingos: board.bingos,
                       });
                       setIsOpen(!isOpen);
                     }}
                   >
-                    {board.date}
+                    {board.date.split("T")[0]}
                   </td>
                   <td className="tableitem">{board.items.length}</td>
                   <td className="tableitem">{board.bingos}</td>
