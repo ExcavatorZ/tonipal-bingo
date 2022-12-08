@@ -2,7 +2,7 @@
 
 ## Description
 
-Bingo board of items frequently bought. Every item is randomly assigned a position
+Bingo board of items frequently bought by [Tonipal](https://github.com/tonipal). Every item is randomly assigned a position
 in the board. Items can be clicked to check or uncheck whether or not the item
 has been bought. Items can be saved with the submit button. The amount of times
 and item has been bought can be seen in the leaderboards. You also have an option
