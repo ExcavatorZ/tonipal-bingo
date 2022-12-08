@@ -1,7 +1,16 @@
 import { Modal, Button } from "react-bootstrap";
 import { warning } from "../warning";
 
-export const BingoWindow = ({ open, id, date, items, bingos, handleClose }) => {
+export const BingoWindow = ({
+  open,
+  id,
+  date,
+  time,
+  day,
+  items,
+  bingos,
+  handleClose,
+}) => {
   const itemString = items.split(",");
   const lastItem = itemString.slice(-1);
   const itemList = itemString.slice(0, -1).map((item) => {
@@ -47,6 +56,12 @@ export const BingoWindow = ({ open, id, date, items, bingos, handleClose }) => {
       <Modal.Title className="detailTitle">Details of Board</Modal.Title>
       <Modal.Body>
         Date of Board: {date}
+        <br />
+        <br />
+        Day of Week: {day}
+        <br />
+        <br />
+        Time of Sending: {time.split(".")[0]}
         <br />
         <br />
         Items: {itemList}
