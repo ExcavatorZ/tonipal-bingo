@@ -58,7 +58,7 @@ export const BingoWindow = ({
         Date of Board: {date}
         <br />
         <br />
-        Day of Week: {day}
+        Day of Sending: {day}
         <br />
         <br />
         Time of Sending: {time.split(".")[0]}
