@@ -61,7 +61,7 @@ export const Boards = () => {
                       setIsOpen(!isOpen);
                     }}
                   >
-                    {board.date}
+                    {board.date.split("T")[0]}
                   </td>
                   <td className="tableitem">{board.items.length}</td>
                   <td className="tableitem">{board.bingos}</td>
