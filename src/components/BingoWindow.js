@@ -41,9 +41,10 @@ export const BingoWindow = ({
       console.error(err.message);
     }
   };
+  console.log(extra_info);
   if (
     extra_info === null ||
-    extra_info === '{" "}' ||
+    extra_info === '{""}' ||
     extra_info === undefined ||
     extra_info.length < 4
   ) {

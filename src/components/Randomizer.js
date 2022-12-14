@@ -99,8 +99,6 @@ export const Randomizer = () => {
 
   const [extraInfo, setExtraInfo] = useState("");
 
-  console.log(extraInfo);
-
   return (
     <div>
       <section id="board">
