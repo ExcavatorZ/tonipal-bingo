@@ -24,7 +24,6 @@ export const Submit = () => {
     }
   };
   getBoard();
-  console.log(bingoAmount);
   return (
     <div>
       <h2>Your scores have been submitted!</h2>
