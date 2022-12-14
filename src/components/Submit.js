@@ -11,12 +11,10 @@ export const Submit = () => {
     try {
       const lastBoard = await fetch("http://localhost:5000/last")
         .then((data) => {
-          console.log(data);
           return data.json();
         })
         .then((item) => {
           setBingoAmount(item.rows[0].bingos);
-          console.log(item.rows[0].bingos);
           return item.rows[0].bingos;
         });
     } catch (err) {
@@ -24,7 +22,6 @@ export const Submit = () => {
     }
   };
   getBoard();
-  console.log(bingoAmount);
   return (
     <div>
       <h2>Your scores have been submitted!</h2>

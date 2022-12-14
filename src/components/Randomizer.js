@@ -40,6 +40,7 @@ export const Randomizer = () => {
         .map(({ value }) => value);
       const boardBody = resultBody;
       boardBody.push(bingoCounter);
+      boardBody.push(extraInfo);
       const boardResponse = await fetch("http://localhost:5000/insert", {
         method: "POST",
         headers: { "Content-Type": "Application/json" },
@@ -96,6 +97,8 @@ export const Randomizer = () => {
     setBingoCounter(counter);
   }, [bingoBoard, combinations]);
 
+  const [extraInfo, setExtraInfo] = useState("");
+
   return (
     <div>
       <section id="board">
@@ -115,6 +118,12 @@ export const Randomizer = () => {
           );
         })}
       </section>
+      <br />
+      <form>
+        <label>Enter extra info: </label>
+        <input onChange={(e) => setExtraInfo(e.target.value)} maxLength="100" />
+        <p style={{ display: "inline" }}>{extraInfo.length} / 100</p>
+      </form>
       <br />
       <button
         onClick={() => {

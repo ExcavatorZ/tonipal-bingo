@@ -27,6 +27,12 @@ const creation = () => {
       console.log(err, res);
     }
   );
+  dbConfig.query(
+    'ALTER TABLE public."boards" ADD COLUMN IF NOT EXISTS "extra_info" varchar(104)',
+    (err, res) => {
+      console.log(err, res);
+    }
+  );
 };
 
 const populate = () => {

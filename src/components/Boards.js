@@ -35,6 +35,7 @@ export const Boards = () => {
           day={bingoInfo.day}
           items={bingoInfo.items}
           bingos={bingoInfo.bingos}
+          extra_info={bingoInfo.extra_info}
           handleClose={handleClose}
         />
       )}
@@ -62,6 +63,7 @@ export const Boards = () => {
                         day: moment(board.date).format("dddd"),
                         items: board.items + " ",
                         bingos: board.bingos,
+                        extra_info: board.extra_info,
                       });
                       setIsOpen(!isOpen);
                     }}
