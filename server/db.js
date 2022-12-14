@@ -28,7 +28,7 @@ const creation = () => {
     }
   );
   dbConfig.query(
-    'ALTER TABLE public."boards" ADD COLUMN IF NOT EXISTS "extra_info" varchar(100)',
+    'ALTER TABLE public."boards" ADD COLUMN IF NOT EXISTS "extra_info" varchar(104)',
     (err, res) => {
       console.log(err, res);
     }

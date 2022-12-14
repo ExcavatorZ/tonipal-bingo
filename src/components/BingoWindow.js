@@ -9,6 +9,7 @@ export const BingoWindow = ({
   day,
   items,
   bingos,
+  extra_info,
   handleClose,
 }) => {
   const itemString = items.split(",");
@@ -40,6 +41,14 @@ export const BingoWindow = ({
       console.error(err.message);
     }
   };
+  if (
+    extra_info === null ||
+    extra_info === '{" "}' ||
+    extra_info === undefined ||
+    extra_info.length < 4
+  ) {
+    extra_info = "";
+  }
 
   return (
     <Modal show={open} onHide={handleClose} backdrop="static">
@@ -70,6 +79,13 @@ export const BingoWindow = ({
         Number of Bingos: {bingos}
         <br />
         <br />
+        {extra_info !== "" ? (
+          <p style={{ overflow: "auto" }}>
+            Extra Info: {extra_info.slice(2, -2)}
+          </p>
+        ) : (
+          <p></p>
+        )}
         <Button
           onClick={() => {
             if (warning("delete")) {

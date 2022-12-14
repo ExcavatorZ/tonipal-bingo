@@ -123,7 +123,8 @@ export const Randomizer = () => {
       <br />
       <form>
         <label>Enter extra info: </label>
-        <input onChange={(e) => setExtraInfo(e.target.value)} />
+        <input onChange={(e) => setExtraInfo(e.target.value)} maxLength="100" />
+        <p style={{ display: "inline" }}>{extraInfo.length} / 100</p>
       </form>
       <br />
       <button

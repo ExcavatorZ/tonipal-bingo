@@ -59,9 +59,6 @@ app.post("/insert", async (req, res) => {
     const items = body.slice(0, -2);
     const bingos = body.slice(-2, -1);
     const extra_info = body.slice(-1);
-    console.log(items);
-    console.log(bingos);
-    console.log(extra_info);
     const newBoard = await db.dbConfig.query(
       "INSERT INTO boards (items, bingos, extra_info) VALUES($1,$2,$3)",
       [items, Number(bingos), extra_info]
@@ -105,9 +102,6 @@ app.patch("/boards/:id", async (req, res) => {
     const patchables = body.slice(0, -2);
     const bingos = body.slice(-2, -1);
     const extra_info = body.slice(-1);
-    console.log(patchables);
-    console.log(bingos);
-    console.log(extra_info);
     const replaceBoard = await db.dbConfig.query(
       "UPDATE boards SET items = $1, bingos = $2, extra_info = $4 WHERE id = $3",
       [patchables, Number(bingos), board, extra_info]
