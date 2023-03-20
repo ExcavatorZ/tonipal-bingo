@@ -3,9 +3,9 @@
 ## Description
 
 Bingo board of items frequently bought by [Tonipal](https://github.com/tonipal). Every item is randomly assigned a position
-in the board. Items can be clicked to check or uncheck whether or not the item
+on the board. Items can be clicked to check or uncheck whether or not the item
 has been bought. Items can be saved with the submit button. The amount of times
-and item has been bought can be seen in the leaderboards. You also have an option
+an item has been bought can be seen in the leaderboards. Every board is also saved individually. You can only save one board per day, if you were to save another board on the same day, it will overwrite the previous board. You also have an option
 to reset the leaderboards with the reset button.
 
 ## Features
