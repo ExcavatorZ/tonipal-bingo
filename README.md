@@ -1,3 +1,5 @@
+**Status:** Archived, legacy project kept for reference.
+
 # Tonipal Bingo
 
 ## Description
